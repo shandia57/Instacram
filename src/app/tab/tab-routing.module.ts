@@ -1,7 +1,7 @@
-import {NgModule} from '@angular/core';
-import {Routes, RouterModule} from '@angular/router';
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
 
-import {TabPage} from './tab.page';
+import { TabPage } from './tab.page';
 
 const routes: Routes = [
   {
@@ -22,13 +22,13 @@ const routes: Routes = [
       },
       {
         path: 'photos',
-        loadChildren: () => import('../photos/photos.module').then( m => m.PhotosPageModule)
+        loadChildren: () => import('../photos/photos.module').then(m => m.PhotosPageModule)
       }
     ]
   },
   {
     path: '',
-    redirectTo: '/tab/home',
+    redirectTo: '/tab/connection',
     pathMatch: 'full'
   }
 ];

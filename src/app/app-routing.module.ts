@@ -3,10 +3,19 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
 
+
+  {
+    path: 'connection',
+    loadChildren: () => import('./connection/connection.module').then(m => m.ConnectionPageModule)
+  },
+  {
+    path: 'subscription',
+    loadChildren: () => import('./subscription/subscription.module').then(m => m.SubscriptionPageModule)
+  },
   {
     path: '',
-    loadChildren: () => import('./tab/tab.module').then( m => m.TabPageModule)
-  },
+    loadChildren: () => import('./tab/tab.module').then(m => m.TabPageModule)
+  }
 ];
 
 @NgModule({
