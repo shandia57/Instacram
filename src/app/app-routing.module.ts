@@ -13,13 +13,14 @@ const routes: Routes = [
     loadChildren: () => import('./subscription/subscription.module').then(m => m.SubscriptionPageModule)
   },
   {
-    path: 'self-data',
-    loadChildren: () => import('./subscription/self-data/self-data.module').then(m => m.SelfDataPageModule)
-  },
-  {
     path: '',
     loadChildren: () => import('./tab/tab.module').then(m => m.TabPageModule)
   },
+  {
+    path: 'self-data',
+    loadChildren: () => import('./subscription/self-data/self-data.module').then(m => m.SelfDataPageModule)
+  },
+
 
 ];
 

@@ -7,7 +7,12 @@ const routes: Routes = [
   {
     path: '',
     component: SubscriptionPage
+  },  {
+    path: 'recap-sub',
+    loadChildren: () => import('./recap-sub/recap-sub.module').then( m => m.RecapSubPageModule)
   },
+
+
 
 
 ];

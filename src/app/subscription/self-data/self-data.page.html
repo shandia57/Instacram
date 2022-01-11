@@ -1,23 +1,48 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Inscription</ion-title>
+    <ion-title>selfData</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <h1>Coordonnées personnelle</h1>
-  <ion-item lines="none">
-    <ion-label position="floating">Nom</ion-label>
-    <ion-input></ion-input>
-  </ion-item>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
 
-  <ion-item lines="none">
-    <ion-label position="floating">Prénom</ion-label>
-    <ion-input></ion-input>
-  </ion-item>
+    <ion-item lines="none">
+      <ion-label position="floating">* Username</ion-label>
+      <ion-input type="text" formControlName="username"></ion-input>
+    </ion-item>
 
-  <ion-item lines="none">
-    <ion-label position="floating">Adresse</ion-label>
-    <ion-input></ion-input>
-  </ion-item>
+    <span class="error ion-padding" *ngIf="submitted && errorCtr.username.errors?.required">
+      Un username est requis.
+    </span>
+
+    <span class="error ion-padding" *ngIf="submitted && errorCtr.username.errors?.minlength">
+      La taille doit être au minimum de 6 charactères.
+    </span>
+
+    <ion-item lines="none">
+      <ion-label position="floating">* Nom</ion-label>
+      <ion-input type="text" formControlName="lastname"></ion-input>
+    </ion-item>
+
+    <span class="error ion-padding" *ngIf="submitted && errorCtr.lastname.errors?.required">
+      Un nom est requis.
+    </span>
+
+    <ion-item lines="none">
+      <ion-label position="floating">* Prénom</ion-label>
+      <ion-input type="text" formControlName="firstname"></ion-input>
+    </ion-item>
+
+    <span class="error ion-padding" *ngIf="submitted && errorCtr.firstname.errors?.required">
+      Un prenom est requis.
+    </span>
+
+    <ion-item lines="none">
+      <ion-label position="floating">Description</ion-label>
+      <ion-input type="text" formControlName="description"></ion-input>
+    </ion-item>
+
+    <ion-button size="block" type="submit">Valider ces champs</ion-button>
+  </form>
 </ion-content>

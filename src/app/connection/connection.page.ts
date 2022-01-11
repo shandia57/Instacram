@@ -9,13 +9,28 @@ import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 
 
 export class ConnectionPage implements OnInit {
-  ionicForm: FormGroup;
-  constructor(public formBuilder: FormBuilder) { }
+  form: FormGroup;
+  formBuilder: FormBuilder;
+
+  constructor(formBuilder: FormBuilder) {
+    this.formBuilder = formBuilder;
+    this.form = this.createForm();
+  }
 
   ngOnInit() { }
 
-  submitForm() {
-    console.log(this.ionicForm.value)
+  createForm(): FormGroup {
+    return this.formBuilder.group({
+      username: [''],
+      password: [''],
+    })
   }
 
+  getForm(): FormGroup {
+    return this.form;
+  }
+
+  submitForm(data) {
+    console.log(data.form.value.username)
+  }
 }

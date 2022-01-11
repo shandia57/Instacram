@@ -6,7 +6,7 @@
 
 <ion-content [fullscreen]="true">
 
-  <form [formGroup]="ionicForm" (ngSubmit)="submitForm()" novalidate>
+  <form [formGroup]="form" (ngSubmit)="submitForm(this)">
 
     <ion-item>
       <ion-label>Username</ion-label>

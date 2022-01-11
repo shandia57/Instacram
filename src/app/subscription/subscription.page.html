@@ -6,22 +6,48 @@
 
 <ion-content>
   <h1>Identifant de connexion</h1>
-  <ion-item lines="none">
-    <ion-label position="floating">Adresse mail</ion-label>
-    <ion-input></ion-input>
-  </ion-item>
 
-  <ion-item lines="none">
-    <ion-label position="floating">Mot de passe</ion-label>
-    <ion-input></ion-input>
-  </ion-item>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
 
-  <ion-item lines="none">
-    <ion-label position="floating">Confirmation du mot de passe</ion-label>
-    <ion-input></ion-input>
-  </ion-item>
+    <ion-item lines="none">
+      <ion-label position="floating">Adresse mail</ion-label>
+      <ion-input type="email" formControlName="mail"></ion-input>
+    </ion-item>
 
-  <ion-button size="block" [root]="root">Valider ces champs</ion-button>
+    <span class="error ion-padding" *ngIf="submitted && errorCtr.mail.errors?.required">
+      Un mail est requis.
+    </span>
+    <span class="error ion-padding" *ngIf="submitted && errorCtr.mail.errors?.email">
+      Vous devez entrer un mail valide.
+    </span>
+
+    <ion-item lines="none">
+      <ion-label position="floating">Mot de passe</ion-label>
+      <ion-input type="password" formControlName="password"></ion-input>
+    </ion-item>
+    <span class="error ion-padding" *ngIf="submitted && errorCtr.password.errors?.required">
+      Un mot de passe est requis.
+    </span>
+    <span class="error ion-padding" *ngIf="submitted && errorCtr.password.errors?.minlength">
+      Le mot de passe doit contenir minimum 8 charactères.
+    </span>
+
+
+    <ion-item lines="none">
+      <ion-label position="floating">Confirmation du mot de passe</ion-label>
+      <ion-input type="password" formControlName="passwordConf"></ion-input>
+    </ion-item>
+    <span class="error ion-padding" *ngIf="submitted && errorCtr.passwordConf.errors?.validators">
+      Les mots de passe de confirmation est requis.
+    </span>
+
+    <span class="error ion-padding" *ngIf="!matchPassword">
+      {{message}}
+    </span>
+
+    <ion-button size="block" type="submit">Valider ces champs</ion-button>
+  </form>
+
 
 
 </ion-content>
