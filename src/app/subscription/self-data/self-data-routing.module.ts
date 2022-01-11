@@ -1,19 +1,17 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { SubscriptionPage } from './subscription.page';
+import { SelfDataPage } from './self-data.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: SubscriptionPage
-  },
-
-
+    component: SelfDataPage
+  }
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class SubscriptionPageRoutingModule { }
+export class SelfDataPageRoutingModule {}

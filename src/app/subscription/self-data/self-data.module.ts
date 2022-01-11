@@ -4,20 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { SubscriptionPageRoutingModule } from './subscription-routing.module';
+import { SelfDataPageRoutingModule } from './self-data-routing.module';
 
-import { SubscriptionPage } from './subscription.page';
+import { SelfDataPage } from './self-data.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    SubscriptionPageRoutingModule
+    SelfDataPageRoutingModule
   ],
-  declarations: [SubscriptionPage]
+  declarations: [SelfDataPage]
 })
-export class SubscriptionPageModule {
-
-  root = "self-data"
-}
+export class SelfDataPageModule {}

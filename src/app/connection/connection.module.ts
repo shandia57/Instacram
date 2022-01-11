@@ -1,11 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
-
 import { ConnectionPageRoutingModule } from './connection-routing.module';
-
 import { ConnectionPage } from './connection.page';
 
 @NgModule({
@@ -13,8 +10,9 @@ import { ConnectionPage } from './connection.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    ConnectionPageRoutingModule
+    ConnectionPageRoutingModule,
+    ReactiveFormsModule
   ],
   declarations: [ConnectionPage]
 })
-export class ConnectionPageModule {}
+export class ConnectionPageModule { }
