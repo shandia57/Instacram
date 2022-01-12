@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
-import { Film } from 'src/app/models/film.model';
-import { FilmService } from 'src/app/film.service';
+import { User } from 'src/app/models/user.model';
+import { UserService } from 'src/app/user.service';
 
 @Component({
   selector: 'app-film-new',
@@ -10,16 +10,16 @@ import { FilmService } from 'src/app/film.service';
   styleUrls: ['./film-new.page.scss'],
 })
 export class FilmNewPage implements OnInit {
-  public film!: Film;
+  public film!: User;
 
   constructor(
-    private Film: FilmService,
+    private Film: UserService,
     private toastCtrl: ToastController,
     private router: Router
   ) { }
 
   ngOnInit() {
-    this.film = new Film();
+    this.film = new User();
   }
 
   async presentToast() {
@@ -37,7 +37,7 @@ export class FilmNewPage implements OnInit {
 
   add() {
     this.Film.saveNewFilm(this.film).subscribe(() => {
-      this.film = new Film();
+      this.film = new User();
       this.presentToast();
     })
   }

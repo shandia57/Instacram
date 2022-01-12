@@ -5,5 +5,26 @@
 </ion-header>
 
 <ion-content>
+  <ion-title>Récap de vos données</ion-title>
 
+  <ion-item>
+    <ion-label>Mail : </ion-label>
+    <ion-label color="primary"> {{user.mail}} </ion-label>
+  </ion-item>
+  <ion-item>
+    <ion-label>Username : </ion-label>
+    <ion-label color="primary"> {{self.username}} </ion-label>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Nom : </ion-label>
+    <ion-label color="primary"> {{self.lastname}} </ion-label>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Prénom : </ion-label>
+    <ion-label color="primary"> {{self.firstname}} </ion-label>
+  </ion-item>
+
+  <ion-button expand="block" (click)="onSignup()">Valider les données</ion-button>
 </ion-content>

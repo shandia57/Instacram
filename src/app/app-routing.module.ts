@@ -16,10 +16,7 @@ const routes: Routes = [
     path: '',
     loadChildren: () => import('./tab/tab.module').then(m => m.TabPageModule)
   },
-  {
-    path: 'self-data',
-    loadChildren: () => import('./subscription/self-data/self-data.module').then(m => m.SelfDataPageModule)
-  },
+
 
 
 ];

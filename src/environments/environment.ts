@@ -4,14 +4,12 @@
 
 export const environment = {
   firebase: {
-    projectId: 'films-2f0bc',
-    appId: '1:484816020469:web:b810508c4ea7c4aba1b6bc',
-    databaseURL: 'https://films-2f0bc-default-rtdb.firebaseio.com',
-    storageBucket: 'films-2f0bc.appspot.com',
-    locationId: 'europe-west',
-    apiKey: 'AIzaSyBvVaCQW19mHbJRd0CdbGLtIKUajnwuZaw',
-    authDomain: 'films-2f0bc.firebaseapp.com',
-    messagingSenderId: '484816020469',
+    apiKey: "AIzaSyDlGzEVO_cEqqYsToSs_r7hCq7oX6AIcSE",
+    authDomain: "instacram-94520.firebaseapp.com",
+    projectId: "instacram-94520",
+    storageBucket: "instacram-94520.appspot.com",
+    messagingSenderId: "198143843576",
+    appId: "1:198143843576:web:0b3c7a36a61f9d11952f0d"
   },
   production: false
 };

@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class SelfDataPage implements OnInit {
 
-  root = "self-data"
+  root = "/subscription/recap"
   form: FormGroup;
   submitted = false;
   matchPassword = true;
@@ -41,7 +41,7 @@ export class SelfDataPage implements OnInit {
     } else {
       sessionStorage.setItem("selfData", JSON.stringify(this.form.value));
       console.log(sessionStorage.getItem("selfData"));
-      // this.router.navigate(['/' + this.root]);
+      this.router.navigate([this.root]);
     }
   }
 

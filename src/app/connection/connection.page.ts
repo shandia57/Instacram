@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import { UserService } from './../user.service';
+import { Router } from '@angular/router';
+
+
 @Component({
   selector: 'app-connection',
   templateUrl: './connection.page.html',
@@ -11,17 +15,23 @@ import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 export class ConnectionPage implements OnInit {
   form: FormGroup;
   formBuilder: FormBuilder;
+  root = "/tab/home";
 
-  constructor(formBuilder: FormBuilder) {
+  constructor(
+    formBuilder: FormBuilder,
+    public userService: UserService,
+    public router: Router) {
+
     this.formBuilder = formBuilder;
     this.form = this.createForm();
+
   }
 
   ngOnInit() { }
 
   createForm(): FormGroup {
     return this.formBuilder.group({
-      username: [''],
+      mail: [''],
       password: [''],
     })
   }
@@ -30,7 +40,18 @@ export class ConnectionPage implements OnInit {
     return this.form;
   }
 
-  submitForm(data) {
-    console.log(data.form.value.username)
+  async submitForm(data) {
+    let email = data.form.value.mail;
+    let password = data.form.value.password;
+    await this.userService.signin(email, password)
+    if (this.userService.isLoggediN) {
+      this.router.navigate([this.root]);
+    } else {
+      alert("Vos identifiants sont incorrect ! ");
+    }
+  }
+
+  async onSignin(email: string, password: string) {
+
   }
 }

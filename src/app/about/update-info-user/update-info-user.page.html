@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{mail}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+    <ion-title>Username</ion-title>
+
+    <ion-item>
+      <ion-label>{{user.username}}</ion-label>
+      <ion-input formControlName="username"> </ion-input>
+    </ion-item>
+    <ion-title>Prénom</ion-title>
+
+    <ion-item>
+      <ion-label>{{user.firstname}}</ion-label>
+
+      <ion-input formControlName="firstname"> </ion-input>
+    </ion-item>
+
+
+    <ion-title>Nom</ion-title>
+
+    <ion-item>
+      <ion-label>{{user.lastname}}</ion-label>
+
+      <ion-input formControlName="lastname"> </ion-input>
+    </ion-item>
+
+    <ion-title>Description</ion-title>
+
+    <ion-item>
+      <p>{{user.description}}</p>
+      <ion-textarea formControlName="description"> </ion-textarea>
+    </ion-item>
+
+
+
+    <ion-button expand="block" type="submit">Modifier</ion-button>
+  </form>
+</ion-content>

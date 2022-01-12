@@ -1,5 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {FilmService} from '../film.service';
+import { Component, OnInit } from '@angular/core';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-film-list',
@@ -10,7 +10,7 @@ export class FilmListPage implements OnInit {
   films!: any;
 
   constructor(
-    private Film: FilmService) {
+    private Film: UserService) {
   }
 
   ngOnInit() {

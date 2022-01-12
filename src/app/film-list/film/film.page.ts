@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AlertController, ToastController } from '@ionic/angular';
-import { FilmService } from 'src/app/film.service';
+import { UserService } from 'src/app/user.service';
 
 @Component({
   selector: 'app-film',
@@ -13,9 +13,9 @@ export class FilmPage implements OnInit {
   film: any = null;
 
   constructor(
-    private alertCtrl : AlertController,
+    private alertCtrl: AlertController,
     private route: ActivatedRoute,
-    private Film: FilmService,
+    private Film: UserService,
     private toastCtrl: ToastController,
     private router: Router
   ) { }
@@ -29,7 +29,7 @@ export class FilmPage implements OnInit {
   }
 
   async setModif() {
-    if(!this.modif) {
+    if (!this.modif) {
       const alert = await this.alertCtrl.create({
         header: 'Etes-vous sur de vouloir modifier ?',
         subHeader: 'Vous rendrez possible la modification',
@@ -39,7 +39,7 @@ export class FilmPage implements OnInit {
             role: 'Cancel'
           }, {
             text: 'Confirmer',
-            handler: () => { this.modif = !this.modif}
+            handler: () => { this.modif = !this.modif }
           }
         ]
       });

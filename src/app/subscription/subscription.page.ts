@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class SubscriptionPage implements OnInit {
 
-  root = "self-data"
+  root = "/subscription/step2"
   form: FormGroup;
   submitted = false;
   matchPassword = true;
@@ -45,7 +45,7 @@ export class SubscriptionPage implements OnInit {
         return false;
       } else {
         sessionStorage.setItem("user", JSON.stringify(this.form.value));
-        this.router.navigate(['/' + this.root]);
+        this.router.navigate([this.root]);
       }
     } else {
       this.matchPassword = false;
