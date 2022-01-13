@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>photosList</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <ion-card *ngFor="let photo of photos">
+    <img src="{{photo.image}}" />
+    <ion-card-header>
+      <ion-card-subtitle>Lieu</ion-card-subtitle>
+      <ion-card-title>{{photo.lieu}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      {{photo.description}}
+    </ion-card-content>
+    <ion-card-content>
+      <ion-button id="{{photo.id}}" (click)="updateImage($event)">Modifier</ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

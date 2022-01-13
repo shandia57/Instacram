@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { User } from './models/user.model';
+import { Image } from './models/image.model';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { AngularFireStorage, AngularFireUploadTask } from '@angular/fire/storage';
 import { AngularFireAuth } from '@angular/fire/auth';
@@ -67,6 +68,12 @@ export class UserService {
     }
   }
 
+  getAllUsers() {
+    return this.user.snapshotChanges().pipe(
+      map((changes: any) => changes.map((doc: any) => ({ id: doc.payload.doc.id, ...doc.payload.doc.data() })))
+    );
+  }
+
   getSingleUser(id: any): any {
     return new Observable(obs => {
       this.user.doc(id).get().subscribe(res => {
@@ -91,10 +98,37 @@ export class UserService {
       profile: urlImage
     });
   }
-  insertImageToGalery(mail, urlImage) {
+  insertImageToGalery(mail, array) {
     this.db.collection("gallery").doc("photos").collection(mail).add({
-      image: urlImage
+      image: array[0],
+      lieu: array[1],
+      description: array[2],
     })
+  }
+
+  getAllImagesFromGallery(mail) {
+    return this.db.collection("gallery").doc("photos").collection(mail).snapshotChanges().pipe(
+      map((changes: any) => changes.map((doc: any) => ({ id: doc.payload.doc.id, ...doc.payload.doc.data() })))
+    );
+  }
+
+  getSingleImage(mail: any, id: any): any {
+    return new Observable(obs => {
+      this.db.collection("gallery").doc("photos").collection(mail).doc(id).get().subscribe(res => {
+        obs.next({ ...res.data() });
+      });
+    });
+  }
+
+  updateImage(image: Image, mail: string, id: any) {
+    return new Observable(obs => {
+      this.db.collection("gallery").doc("photos").collection(mail).doc(id).update(image);
+      obs.next();
+    });
+  }
+
+  deleteImage(mail: any, id: any) {
+    this.db.collection("gallery").doc("photos").collection(mail).doc(id).delete();
   }
 
   update(user: User) {

@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>updatePhoto</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <h1>Photo</h1>
+
+  <img *ngIf="photo" src="{{photo.image}}" alt="">
+
+  <ion-input *ngIf="photo" [(ngModel)]="photo.lieu">Lieu : </ion-input>
+  <ion-input *ngIf="photo" [(ngModel)]="photo.image">Url : </ion-input>
+  <ion-input *ngIf="photo" [(ngModel)]="photo.description">Description : </ion-input>
+
+
+  <ion-item>
+    <ion-button (click)="updateImage()">Modifier</ion-button>
+    <ion-button (click)="delete()" color="danger">Supprimer</ion-button>
+  </ion-item>
+</ion-content>

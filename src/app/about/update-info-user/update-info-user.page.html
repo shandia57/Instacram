@@ -9,13 +9,13 @@
     <ion-title>Username</ion-title>
 
     <ion-item>
-      <ion-label>{{user.username}}</ion-label>
+      <ion-label *ngIf="user">{{user.username}}</ion-label>
       <ion-input formControlName="username"> </ion-input>
     </ion-item>
     <ion-title>Prénom</ion-title>
 
     <ion-item>
-      <ion-label>{{user.firstname}}</ion-label>
+      <ion-label *ngIf="user">{{user.firstname}}</ion-label>
 
       <ion-input formControlName="firstname"> </ion-input>
     </ion-item>
@@ -24,7 +24,7 @@
     <ion-title>Nom</ion-title>
 
     <ion-item>
-      <ion-label>{{user.lastname}}</ion-label>
+      <ion-label *ngIf="user">{{user.lastname}}</ion-label>
 
       <ion-input formControlName="lastname"> </ion-input>
     </ion-item>
@@ -32,7 +32,7 @@
     <ion-title>Description</ion-title>
 
     <ion-item>
-      <p>{{user.description}}</p>
+      <p *ngIf="user">{{user.description}}</p>
       <ion-textarea formControlName="description"> </ion-textarea>
     </ion-item>
 

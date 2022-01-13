@@ -16,6 +16,24 @@ const routes: Routes = [
     path: '',
     loadChildren: () => import('./tab/tab.module').then(m => m.TabPageModule)
   },
+  {
+    path: 'photos-list',
+    loadChildren: () => import('./photos-list/photos-list.module').then(m => m.PhotosListPageModule)
+  },
+  {
+    path: 'follow-list',
+    loadChildren: () => import('./follow-list/follow-list.module').then(m => m.FollowListPageModule)
+  },
+  {
+    path: 'modal-profile-photo',
+    loadChildren: () => import('./modal/modal-profile-photo/modal-profile-photo.module').then(m => m.ModalProfilePhotoPageModule)
+  },
+  {
+    path: 'modal-gallery-photo',
+    loadChildren: () => import('./modal/modal-gallery-photo/modal-gallery-photo.module').then(m => m.ModalGalleryPhotoPageModule)
+  },
+
+
 
 
 
