@@ -9,10 +9,6 @@ const routes: Routes = [
     component: TabPage,
     children: [
       {
-        path: 'films',
-        loadChildren: () => import('../film-list/film-list.module').then(m => m.FilmListPageModule)
-      },
-      {
         path: 'home',
         loadChildren: () => import('../home/home.module').then(m => m.HomePageModule)
       },

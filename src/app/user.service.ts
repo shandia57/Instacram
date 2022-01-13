@@ -56,12 +56,7 @@ export class UserService {
       await this.firebaseAuth.signInWithEmailAndPassword(email, password)
         .then(res => {
           this.isLoggediN = true;
-          localStorage.setItem('userConnected', JSON.stringify(res.user))
           sessionStorage.setItem('userConnected', email.toLowerCase());
-          // console.log(JSON.stringify(this.anyUser['uid']));
-          // this.anyUser = res.user;
-          // console.log(this.anyUser);
-          // console.log(JSON.stringify(this.anyUser['uid']));
         })
     } catch (err) {
       console.log(err);
@@ -77,7 +72,7 @@ export class UserService {
   getSingleUser(id: any): any {
     return new Observable(obs => {
       this.user.doc(id).get().subscribe(res => {
-        obs.next({ ...res.data() });
+        obs.next({ id: res.id, ...res.data() });
       });
     });
   }
@@ -106,7 +101,7 @@ export class UserService {
     })
   }
 
-  getAllImagesFromGallery(mail) {
+  getAllImagesFromGallery(mail: any) {
     return this.db.collection("gallery").doc("photos").collection(mail).snapshotChanges().pipe(
       map((changes: any) => changes.map((doc: any) => ({ id: doc.payload.doc.id, ...doc.payload.doc.data() })))
     );
@@ -131,37 +126,21 @@ export class UserService {
     this.db.collection("gallery").doc("photos").collection(mail).doc(id).delete();
   }
 
-  update(user: User) {
-    return new Observable(obs => {
-      this.user.doc(user.mail).update(user);
-      obs.next();
-    });
+  likeSingleUser(mailUserConnected: any, mailCurrentUser: any) {
+    this.db.collection("follow").doc("users").collection(mailUserConnected).add({
+      user: mailCurrentUser
+    })
   }
 
-  getAllFilms(): any {
-    return this.user.snapshotChanges().pipe(
+  getUsersLiked(mailUserConnected: any) {
+    return this.db.collection("follow").doc("users").collection(mailUserConnected).snapshotChanges().pipe(
       map((changes: any) => changes.map((doc: any) => ({ id: doc.payload.doc.id, ...doc.payload.doc.data() })))
     );
   }
 
-  saveNewFilm(film: User): any {
-    return new Observable(obs => {
-      this.user.add({ ...film }).then(() => {
-        obs.next();
-      });
-    });
-  }
-
-  get(id: any): any {
-    return new Observable(obs => {
-      this.user.doc(id).get().subscribe(res => {
-        obs.next({ id: res.id, ...res.data() });
-      });
-    });
+  deleteUserLiked(mailUserConnected: any, id: any) {
+    this.db.collection("follow").doc("users").collection(mailUserConnected).doc(id).delete();
   }
 
 
-  delete(id: any) {
-    this.db.doc(`films/${id}`).delete();
-  }
 }

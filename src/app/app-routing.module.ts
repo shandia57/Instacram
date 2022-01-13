@@ -17,11 +17,11 @@ const routes: Routes = [
     loadChildren: () => import('./tab/tab.module').then(m => m.TabPageModule)
   },
   {
-    path: 'photos-list',
+    path: 'photos',
     loadChildren: () => import('./photos-list/photos-list.module').then(m => m.PhotosListPageModule)
   },
   {
-    path: 'follow-list',
+    path: 'follow',
     loadChildren: () => import('./follow-list/follow-list.module').then(m => m.FollowListPageModule)
   },
   {

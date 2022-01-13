@@ -19,19 +19,19 @@
       <ion-row>
         <ion-col>
           <ion-row>
-            <p>Photos</p>
+            <p [routerLink]="rootPhoto">Photos</p>
           </ion-row>
           <ion-row>
-            <p>10</p>
+            <p>{{numberPhotos}}</p>
           </ion-row>
         </ion-col>
 
         <ion-col>
           <ion-row>
-            <p>Abonnements</p>
+            <p [routerLink]="rootFollow">Abonnements</p>
           </ion-row>
           <ion-row>
-            <p>50</p>
+            <p>{{numberUsersLiked}}</p>
           </ion-row>
         </ion-col>
 

@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-avatar slot="start">
+      <img *ngIf="user" src="{{user.profile}}" />
+    </ion-avatar>
+    <ion-label>
+      <h2 *ngIf="user">{{user.username}}</h2>
+      <h3 *ngIf="user">{{user.firstname}} {{user.lastname}}</h3>
+
+    </ion-label>
+    <ion-icon name="heart" slot="end" (click)="like($event)" [ngStyle]="{'color': colorHeart() ? 'red' : 'black' }">
+    </ion-icon>
+  </ion-item>
+  <p *ngIf="user">{{user.description}}</p>
+
+  <ion-card *ngFor="let photo of photos">
+    <img src="{{photo.image}}" />
+    <ion-card-header>
+      <ion-card-subtitle>Lieu</ion-card-subtitle>
+      <ion-card-title>{{photo.lieu}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      {{photo.description}}
+    </ion-card-content>
+  </ion-card>
+</ion-content>
