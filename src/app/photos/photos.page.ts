@@ -37,7 +37,6 @@ export class PhotosPage implements OnInit {
 
 }
 
-// eslint-disable-next-line @typescript-eslint/naming-convention
 export interface picture {
   filepath: string;
   webviewPath: string;
