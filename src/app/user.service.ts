@@ -84,13 +84,13 @@ export class UserService {
     });
   }
 
-  insertImage(user, mail, urlImage) {
+  insertImage(user, mail) {
     this.db.collection("users").doc(mail).set({
       username: user.username,
       firstname: user.firstname,
       lastname: user.lastname,
       description: user.description,
-      profile: urlImage
+      profile: user.profile
     });
   }
   insertImageToGalery(mail, array) {

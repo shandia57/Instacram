@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from './../../user.service';
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-update-info-user',
@@ -12,7 +13,7 @@ export class UpdateInfoUserPage implements OnInit {
   mail = sessionStorage.getItem('userConnected');
   form: FormGroup;
 
-  constructor(public userService: UserService, public formBuilder: FormBuilder) {
+  constructor(public userService: UserService, public formBuilder: FormBuilder, public router: Router) {
     console.log(this.mail)
     this.userService.getSingleUser(this.mail).subscribe((value: any) => {
       this.user = value;
@@ -35,6 +36,7 @@ export class UpdateInfoUserPage implements OnInit {
     } else {
       this.userService.updateUser(this.form.value, this.mail,).subscribe(() => {
       });
+      this.router.navigate(["/tab/about"])
     }
 
   }

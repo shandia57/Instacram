@@ -1,10 +1,11 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>followList</ion-title>
+    <ion-icon name="arrow-back-outline" slot="start" routerLink="/tab/about"></ion-icon>
+    <ion-title class="ion-text-center title">Abonnements</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content color="dark" fullscreen>
   <ion-item-sliding *ngFor="let user of likedUser ">
 
     <ion-item>

@@ -21,7 +21,7 @@ export class PhotosListPage implements OnInit {
   }
 
   updateImage(data) {
-    this.router.navigate(["/photos-list/update-photo"]);
+    this.router.navigate(["/photos/update-photo"]);
     sessionStorage.setItem("idPhoto", data.target.id);
   }
 

@@ -1,10 +1,11 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>photosList</ion-title>
+    <ion-icon name="arrow-back-outline" slot="start" routerLink="/tab/about"></ion-icon>
+    <ion-title class="ion-text-center ">photosList</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content fullscreen>
+<ion-content color="dark" fullscreen>
   <ion-card *ngFor="let photo of photos">
     <img src="{{photo.image}}" />
     <ion-card-header>
@@ -15,7 +16,7 @@
       {{photo.description}}
     </ion-card-content>
     <ion-card-content>
-      <ion-button id="{{photo.id}}" (click)="updateImage($event)">Modifier</ion-button>
+      <ion-button id="{{photo.id}}" (click)="updateImage($event)" color="caliente">Modifier</ion-button>
     </ion-card-content>
   </ion-card>
 </ion-content>

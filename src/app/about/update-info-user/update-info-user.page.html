@@ -1,43 +1,42 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>{{mail}}</ion-title>
+    <ion-icon name="arrow-back-outline" slot="start" routerLink="/tab/about"></ion-icon>
+    <ion-title class="ion-text-center title">{{mail}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content color="dark" fullscreen>
   <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
-    <ion-title>Username</ion-title>
 
+
+    <ion-title *ngIf="user">Username : {{user.username}}</ion-title>
     <ion-item>
-      <ion-label *ngIf="user">{{user.username}}</ion-label>
-      <ion-input formControlName="username"> </ion-input>
-    </ion-item>
-    <ion-title>Prénom</ion-title>
-
-    <ion-item>
-      <ion-label *ngIf="user">{{user.firstname}}</ion-label>
-
-      <ion-input formControlName="firstname"> </ion-input>
-    </ion-item>
-
-
-    <ion-title>Nom</ion-title>
-
-    <ion-item>
-      <ion-label *ngIf="user">{{user.lastname}}</ion-label>
-
-      <ion-input formControlName="lastname"> </ion-input>
-    </ion-item>
-
-    <ion-title>Description</ion-title>
-
-    <ion-item>
-      <p *ngIf="user">{{user.description}}</p>
-      <ion-textarea formControlName="description"> </ion-textarea>
+      <ion-input formControlName="username" color="light"> </ion-input>
     </ion-item>
 
 
 
-    <ion-button expand="block" type="submit">Modifier</ion-button>
+
+    <ion-title *ngIf="user">Prénom : {{user.firstname}}</ion-title>
+    <ion-item>
+      <ion-input formControlName="firstname" color="light"> </ion-input>
+    </ion-item>
+
+
+
+
+    <ion-title *ngIf="user">Nom : {{user.lastname}}</ion-title>
+    <ion-item>
+      <ion-input formControlName="lastname" color="light"> </ion-input>
+    </ion-item>
+
+
+
+    <p *ngIf="user" class="ion-padding"> Description :{{user.description}}</p>
+    <ion-item>
+      <ion-input formControlName="description" color="light"> </ion-input>
+    </ion-item>
+
+    <ion-button expand="block" type="submit" color="caliente">Modifier</ion-button>
   </form>
 </ion-content>

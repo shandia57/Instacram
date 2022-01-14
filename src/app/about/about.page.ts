@@ -46,26 +46,26 @@ export class AboutPage implements OnInit {
     });
 
 
-
-
-
   }
 
   chooseAPicture(data) {
     this.wichPicture = data.target.innerText.toLowerCase();
-    this.hiddeButton = !this.hiddeButton;
+    this.hiddeButton = true;
+
     if (this.wichPicture === "profil") {
-      this.showModalProfile = !this.showModalProfile;
+      this.showModalProfile = true;
     } else {
-      this.showModalGallery = !this.showModalGallery;
+      this.showModalGallery = true;
     }
   }
 
   sendImage() {
-    if (this.input.length > 0) {
+    if (this.input.length > 0 || this.user.profile.length > 0) {
+      this.hiddeButton = false;
       if (this.wichPicture === "profil") {
-        this.userService.insertImage(this.user, this.mail, this.input);
-        this.showModalProfile = !this.showModalProfile;
+        this.userService.insertImage(this.user, this.mail);
+        this.showModalProfile = false;
+        alert("Votre image a été envoyé avec succès ! ")
 
       } else {
         let array = [this.input, this.lieu, this.description]
@@ -74,6 +74,10 @@ export class AboutPage implements OnInit {
         this.input = "";
         this.lieu = "";
         this.description = "";
+        this.showModalGallery = false;
+        alert("Votre image a été envoyé avec succès ! ")
+
+
       }
     } else {
       alert("Vous devez mettre une url d'image");
@@ -81,11 +85,11 @@ export class AboutPage implements OnInit {
   }
 
   cancel() {
-    this.hiddeButton = !this.hiddeButton;
+    this.hiddeButton = false;
     if (this.wichPicture === "profil") {
-      this.showModalProfile = !this.showModalProfile
+      this.showModalProfile = false
     } else {
-      this.showModalGallery = !this.showModalGallery;
+      this.showModalGallery = false;
     }
   }
 

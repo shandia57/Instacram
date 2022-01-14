@@ -11,6 +11,7 @@ export class DetailsPage implements OnInit {
   user?: any;
   photos?: any;
   usersLiked?: any
+  heart = false;
   constructor(public userService: UserService) { }
 
   ngOnInit() {
@@ -25,6 +26,7 @@ export class DetailsPage implements OnInit {
     this.userService.getUsersLiked(this.userConnected).subscribe((liked: any) => {
       this.usersLiked = liked
       console.log(liked)
+      this.colorHeart();
     })
   }
 
@@ -34,9 +36,11 @@ export class DetailsPage implements OnInit {
   }
 
   colorHeart() {
-    for (let i = 0; i < this.usersLiked.length; i++) {
-      if (this.currentUserID === this.usersLiked[i].user) {
-        return true;
+    if (this.usersLiked.length !== undefined) {
+      for (let i = 0; i < this.usersLiked.length; i++) {
+        if (this.currentUserID === this.usersLiked[i].user) {
+          return this.heart = true;
+        }
       }
     }
   }

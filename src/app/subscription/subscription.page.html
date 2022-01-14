@@ -1,17 +1,18 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Inscription</ion-title>
+    <ion-icon name="arrow-back-outline" slot="start"></ion-icon>
+    <ion-title class="ion-text-center title" routerLink="/connection">Inscription</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <h1>Identifant de connexion</h1>
+<ion-content fullscreen color="dark">
+  <h1 class="ion-text-center title">Identifants de connexion</h1>
 
   <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
 
     <ion-item lines="none">
-      <ion-label position="floating">Adresse mail</ion-label>
-      <ion-input type="email" formControlName="mail"></ion-input>
+      <ion-label position="floating" color="light">Adresse mail</ion-label>
+      <ion-input color="light" type="email" formControlName="mail"></ion-input>
     </ion-item>
 
     <span class="error ion-padding" *ngIf="submitted && errorCtr.mail.errors?.required">
@@ -22,8 +23,8 @@
     </span>
 
     <ion-item lines="none">
-      <ion-label position="floating">Mot de passe</ion-label>
-      <ion-input type="password" formControlName="password"></ion-input>
+      <ion-label position="floating" color="light">Mot de passe</ion-label>
+      <ion-input color="light" type="password" formControlName="password"></ion-input>
     </ion-item>
     <span class="error ion-padding" *ngIf="submitted && errorCtr.password.errors?.required">
       Un mot de passe est requis.
@@ -34,8 +35,8 @@
 
 
     <ion-item lines="none">
-      <ion-label position="floating">Confirmation du mot de passe</ion-label>
-      <ion-input type="password" formControlName="passwordConf"></ion-input>
+      <ion-label position="floating" color="light">Confirmation du mot de passe</ion-label>
+      <ion-input type="password" color="light" formControlName="passwordConf"></ion-input>
     </ion-item>
     <span class="error ion-padding" *ngIf="submitted && errorCtr.passwordConf.errors?.validators">
       Les mots de passe de confirmation est requis.
@@ -45,7 +46,7 @@
       {{message}}
     </span>
 
-    <ion-button size="block" type="submit">Valider ces champs</ion-button>
+    <ion-button size="block" type="submit" color="caliente">Valider ces champs</ion-button>
   </form>
 
 

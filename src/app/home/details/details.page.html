@@ -1,10 +1,11 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>details</ion-title>
+    <ion-icon name="arrow-back-outline" slot="start" routerLink="/tab/home"></ion-icon>
+    <ion-title class="ion-text-center title">User</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content color="dark" fullscreen>
   <ion-item>
     <ion-avatar slot="start">
       <img *ngIf="user" src="{{user.profile}}" />
@@ -14,18 +15,18 @@
       <h3 *ngIf="user">{{user.firstname}} {{user.lastname}}</h3>
 
     </ion-label>
-    <ion-icon name="heart" slot="end" (click)="like($event)" [ngStyle]="{'color': colorHeart() ? 'red' : 'black' }">
+    <ion-icon name="heart" slot="end" (click)="like($event)" [ngStyle]="{'color': heart ? 'red' : 'black' }">
     </ion-icon>
   </ion-item>
   <p *ngIf="user">{{user.description}}</p>
 
   <ion-card *ngFor="let photo of photos">
-    <img src="{{photo.image}}" />
+    <img *ngIf="photo" src="{{photo.image}}" />
     <ion-card-header>
       <ion-card-subtitle>Lieu</ion-card-subtitle>
-      <ion-card-title>{{photo.lieu}}</ion-card-title>
+      <ion-card-title *ngIf="photo">{{photo.lieu}}</ion-card-title>
     </ion-card-header>
-    <ion-card-content>
+    <ion-card-content *ngIf="photo">
       {{photo.description}}
     </ion-card-content>
   </ion-card>

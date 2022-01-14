@@ -1,34 +1,34 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title *ngIf="user">{{user.username}}</ion-title>
+    <ion-title *ngIf="user" class="ion-text-center title">{{user.username}}</ion-title>
     <ion-icon name="settings-outline" slot="end" [routerLink]="rootUpdate"></ion-icon>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content color="dark" fullscreen>
   <ion-list>
 
     <ion-item>
       <ion-avatar slot="start">
         <ion-img *ngIf="user" src="{{user.profile}}"></ion-img>
       </ion-avatar>
-      <ion-label *ngIf="user">{{user.firstname}} {{user.lastname}}</ion-label>
+      <ion-label *ngIf="user" color="light">{{user.firstname}} {{user.lastname}}</ion-label>
     </ion-item>
 
     <ion-grid>
       <ion-row>
         <ion-col>
-          <ion-row>
-            <p [routerLink]="rootPhoto">Photos</p>
+          <ion-row class="ion-text-center">
+            <p [routerLink]="rootPhoto" class="link">Photos</p>
           </ion-row>
           <ion-row>
             <p>{{numberPhotos}}</p>
           </ion-row>
         </ion-col>
 
-        <ion-col>
+        <ion-col class="ion-text-center">
           <ion-row>
-            <p [routerLink]="rootFollow">Abonnements</p>
+            <p [routerLink]="rootFollow" class="link">Abonnements</p>
           </ion-row>
           <ion-row>
             <p>{{numberUsersLiked}}</p>
@@ -40,30 +40,43 @@
   </ion-list>
 
   <ion-grid>
-    <h3>Ajouter une photo </h3>
-    <ion-row class="ion-align-items-center">
+    <h3 class="ion-text-center title">Ajouter une photo </h3>
+    <ion-row>
       <ion-col size="12" class="ion-text-center">
-        <ion-button *ngIf="!hiddeButton" (click)="chooseAPicture($event)">Profil</ion-button>
+        <ion-button *ngIf="!hiddeButton" (click)="chooseAPicture($event)" color="caliente">Profil</ion-button>
       </ion-col>
       <ion-col size="12" class="ion-text-center">
-        <ion-button *ngIf="!hiddeButton" (click)="chooseAPicture($event)">Galerie</ion-button>
+        <ion-button *ngIf="!hiddeButton" (click)="chooseAPicture($event)" color="caliente">Galerie</ion-button>
       </ion-col>
     </ion-row>
   </ion-grid>
 
   <div *ngIf="showModalProfile">
-    <ion-title>Selectionnez une Url</ion-title>
-    <ion-input [(ngModel)]="input">Url:</ion-input>
-    <ion-button (click)="sendImage()">Envoyer cette image</ion-button>
-    <ion-button (click)="cancel()">Annuler</ion-button>
+    <ion-title class="ion-text-center title">Selectionnez une Url</ion-title>
+    <ion-input [(ngModel)]="user.profile">Url:</ion-input>
+    <ion-row>
+      <ion-col class="ion-text-center">
+        <ion-button (click)="sendImage()" color="caliente">Envoyer cette image</ion-button>
+      </ion-col>
+      <ion-col class="ion-text-center">
+        <ion-button (click)="cancel()" color="secondary">Annuler</ion-button>
+      </ion-col>
+    </ion-row>
+
   </div>
 
   <div *ngIf="showModalGallery">
     <ion-input [(ngModel)]="lieu">Lieu:</ion-input>
     <ion-input [(ngModel)]="input">Url:</ion-input>
     <ion-input [(ngModel)]="description">Description:</ion-input>
-    <ion-button (click)="sendImage()">Envoyer cette image</ion-button>
-    <ion-button (click)="cancel()">Annuler</ion-button>
+    <ion-row>
+      <ion-col class="ion-text-center">
+        <ion-button (click)="sendImage()" color="caliente">Envoyer cette image</ion-button>
+      </ion-col>
+      <ion-col class="ion-text-center">
+        <ion-button (click)="cancel()" color="secondary">Annuler</ion-button>
+      </ion-col>
+    </ion-row>
 
   </div>
 

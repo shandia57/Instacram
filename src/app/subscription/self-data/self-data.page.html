@@ -1,15 +1,16 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>selfData</ion-title>
+    <ion-icon name="arrow-back-outline" slot="start"></ion-icon>
+    <ion-title class="ion-text-center title">selfData</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content fullscreen color="dark">
   <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
 
     <ion-item lines="none">
-      <ion-label position="floating">* Username</ion-label>
-      <ion-input type="text" formControlName="username"></ion-input>
+      <ion-label color="light" position="floating">* Username</ion-label>
+      <ion-input color="light" type="text" formControlName="username"></ion-input>
     </ion-item>
 
     <span class="error ion-padding" *ngIf="submitted && errorCtr.username.errors?.required">
@@ -21,8 +22,8 @@
     </span>
 
     <ion-item lines="none">
-      <ion-label position="floating">* Nom</ion-label>
-      <ion-input type="text" formControlName="lastname"></ion-input>
+      <ion-label color="light" position="floating">* Nom</ion-label>
+      <ion-input color="light" type="text" formControlName="lastname"></ion-input>
     </ion-item>
 
     <span class="error ion-padding" *ngIf="submitted && errorCtr.lastname.errors?.required">
@@ -30,8 +31,8 @@
     </span>
 
     <ion-item lines="none">
-      <ion-label position="floating">* Prénom</ion-label>
-      <ion-input type="text" formControlName="firstname"></ion-input>
+      <ion-label color="light" position="floating">* Prénom</ion-label>
+      <ion-input color="light" type="text" formControlName="firstname"></ion-input>
     </ion-item>
 
     <span class="error ion-padding" *ngIf="submitted && errorCtr.firstname.errors?.required">
@@ -39,10 +40,10 @@
     </span>
 
     <ion-item lines="none">
-      <ion-label position="floating">Description</ion-label>
-      <ion-input type="text" formControlName="description"></ion-input>
+      <ion-label color="light" position="floating">Description</ion-label>
+      <ion-input color="light" type="text" formControlName="description"></ion-input>
     </ion-item>
 
-    <ion-button size="block" type="submit">Valider ces champs</ion-button>
+    <ion-button size="block" color="caliente" type="submit">Valider ces champs</ion-button>
   </form>
 </ion-content>

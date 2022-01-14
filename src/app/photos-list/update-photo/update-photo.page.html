@@ -1,14 +1,14 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>updatePhoto</ion-title>
+    <ion-icon name="arrow-back-outline" slot="start" routerLink="/photos"></ion-icon>
+    <ion-title class="ion-text-center">Update</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <h1>Photo</h1>
+<ion-content color="dark" fullscreen>
+  <ion-title class="ion-text-center">Photo</ion-title>
 
   <img *ngIf="photo" src="{{photo.image}}" alt="">
-
   <ion-input *ngIf="photo" [(ngModel)]="photo.lieu">Lieu : </ion-input>
   <ion-input *ngIf="photo" [(ngModel)]="photo.image">Url : </ion-input>
   <ion-input *ngIf="photo" [(ngModel)]="photo.description">Description : </ion-input>

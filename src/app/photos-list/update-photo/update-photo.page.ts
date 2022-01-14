@@ -26,7 +26,7 @@ export class UpdatePhotoPage implements OnInit {
     if (this.photo.image.length > 0) {
       this.userService.updateImage(this.photo, this.mail, this.idPhoto).subscribe(() => {
       });
-      this.router.navigate(["/photos-list"]);
+      this.router.navigate(["/photos"]);
     } else {
       alert("Vous devez mettre une url");
     }
@@ -36,7 +36,7 @@ export class UpdatePhotoPage implements OnInit {
     let conf = confirm("Êtes-vous sûr de vouloir suppruimer cette image ?")
     if (conf) {
       this.userService.deleteImage(this.mail, this.idPhoto);
-      this.router.navigate(["/photos-list"]);
+      this.router.navigate(["/photos"]);
     }
   }
 
