@@ -10,7 +10,9 @@ import { Router } from '@angular/router';
 export class FollowListPage implements OnInit {
   userConnected = sessionStorage.getItem("userConnected");
   listUsersLiked = JSON.parse(sessionStorage.getItem("usersLiked"));
+  // listUsersLiked = JSON.parse(sessionStorage.getItem("usersLiked"));
   likedUser = [];
+  baseLink = "/tab/home/details/"
 
   constructor(public userService: UserService, public router: Router) { }
 
@@ -22,10 +24,6 @@ export class FollowListPage implements OnInit {
       });
     }
 
-  }
-  whoopty(data) {
-    sessionStorage.setItem("currentUserID", data.target.id);
-    this.router.navigate(["/tab/home/details"]);
   }
 
   delete(data) {

@@ -40,7 +40,6 @@ export class SelfDataPage implements OnInit {
       return false;
     } else {
       sessionStorage.setItem("selfData", JSON.stringify(this.form.value));
-      console.log(sessionStorage.getItem("selfData"));
       this.router.navigate([this.root]);
     }
   }

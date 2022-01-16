@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../user.service';
+import { ActivatedRoute } from '@angular/router';
+
 @Component({
   selector: 'app-details',
   templateUrl: './details.page.html',
@@ -7,12 +9,13 @@ import { UserService } from '../../user.service';
 })
 export class DetailsPage implements OnInit {
   userConnected = sessionStorage.getItem("userConnected");
-  currentUserID = sessionStorage.getItem("currentUserID");
+  currentUserID = this.route.snapshot.params.id;
+  // currentUserID = sessionStorage.getItem("currentUserID");
   user?: any;
   photos?: any;
   usersLiked?: any
   heart = false;
-  constructor(public userService: UserService) { }
+  constructor(public userService: UserService, public route: ActivatedRoute) { }
 
   ngOnInit() {
     this.userService.getSingleUser(this.currentUserID).subscribe((value: any) => {
@@ -25,7 +28,6 @@ export class DetailsPage implements OnInit {
 
     this.userService.getUsersLiked(this.userConnected).subscribe((liked: any) => {
       this.usersLiked = liked
-      console.log(liked)
       this.colorHeart();
     })
   }
